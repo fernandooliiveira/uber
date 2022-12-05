@@ -11,7 +11,7 @@ public class DeleteDataScript {
 
 //        deleteVeiculo(con);
 //        deleteContasBancarias(con);
-//        deleteColaborador(con);
+        deleteColaborador(con);
 //        deleteProprietario(con);
 //        deleteMotorista(con);
 //        deletePassageiro(con);
@@ -36,7 +36,7 @@ public class DeleteDataScript {
 
     private static void deleteMotorista(Connection con) throws SQLException {
         PreparedStatement myStmt = con.prepareStatement("DELETE FROM colaborador_motorista WHERE id = ?");
-        myStmt.setInt(1, 1);
+        myStmt.setInt(1, 2);
 
         myStmt.execute();
     }
@@ -57,7 +57,7 @@ public class DeleteDataScript {
 
     private static void deleteColaborador(Connection con) throws SQLException {
         PreparedStatement myStmt = con.prepareStatement("DELETE FROM colaboradores WHERE id = ?");
-        myStmt.setInt(1, 1);
+        myStmt.setInt(1, 3);
 
         myStmt.execute();
     }

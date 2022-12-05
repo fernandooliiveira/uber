@@ -9,12 +9,12 @@ public class UpdateDataScript {
         Connection con = factory.createConnect();
         ListDataScript list = new ListDataScript();
 
-//        updateVeiculo(con, list);
-//        updateColaborador(con, list);
-//        updateContaBancariaColaborador(con, list);
-//        updateProprietario(con);
-//        updateMotorista(con);
-//        updatePassageiro(con);
+        updateVeiculo(con, list);
+        updateColaborador(con, list);
+        updateContaBancariaColaborador(con, list);
+        updateProprietario(con);
+        updateMotorista(con);
+        updatePassageiro(con);
         updateRegistroViagem(con);
 
 
@@ -78,9 +78,9 @@ public class UpdateDataScript {
         PreparedStatement myStmt = con.prepareStatement
                 ("UPDATE colaboradores " +
                         "SET cpf = ?, nome = ?, endereco = ?, telefone = ?, cnh = ? " +
-                        "WHERE id = ? RETURNING *");
+                        "WHERE id = ?");
         myStmt.setString(1, "800999364-85");
-        myStmt.setString(2, "Ronaldo Da Silva");
+        myStmt.setString(2, "Jose Da Silva");
         myStmt.setString(3, "Rua serra");
         myStmt.setString(4, "+5561985623478");
         myStmt.setString(5, "102030-40");

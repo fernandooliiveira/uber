@@ -7,10 +7,10 @@ public class ListDataScript {
         ConnectionFactory factory = new ConnectionFactory();
         Connection con = factory.createConnect();
 
-//        getAllVeiculos(con);
-//        getAllColaboradores(con);
-//        getAllProprietarios(con);
-//        getAllMotoristas(con);
+        getAllVeiculos(con);
+        getAllColaboradores(con);
+        getAllProprietarios(con);
+        getAllMotoristas(con);
         getAllRegistroViagem(con);
 
         con.close();
