@@ -17,10 +17,16 @@ public class ColaboradorCollection implements CollectionInterface {
                 "62984523695", "22233-9", 1111);
         Colaborador colaborador3 = new Colaborador("22233345761", "Jośe Costa", "Rua X QD Y",
                 "62984523695", "22233-9", 2222);
+        Colaborador colaborador4 = new Colaborador("85566692354", "Iasmin Borges", "Rua X QD Y",
+                "62984523695", "22233-9", 2222);
+        Colaborador colaborador5 = new Colaborador("12233345785", "Emanuella Peixoto", "Rua X QD Y",
+                "62984523695", "22233-9", 2222);
 
         colaboradores.add(colaborador1);
         colaboradores.add(colaborador2);
         colaboradores.add(colaborador3);
+        colaboradores.add(colaborador4);
+        colaboradores.add(colaborador5);
     }
 
     public Collection<Colaborador> getColaboradores() {

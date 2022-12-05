@@ -1,7 +1,6 @@
 package collection;
 
 import interfaces.CollectionInterface;
-import model.ContaBancaria;
 import model.Passageiro;
 
 import java.util.ArrayList;

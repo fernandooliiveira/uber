@@ -25,11 +25,11 @@ public class InsertDataScript {
         ViagemCollection viagemCollection = new ViagemCollection();
         viagemCollection.initCollection();
 
-        insertPassageiro(con, passageiroCollection);
-        insertColaborador(con, colaboradorCollection);
-        insertVeiculo(con, veiculoCollection);
-        insertColaboradorProprietario(con, proprietarioCollection);
-        insertColaboradorMotorista(con, motoristaCollection);
+//        insertPassageiro(con, passageiroCollection);
+//        insertColaborador(con, colaboradorCollection);
+//        insertVeiculo(con, veiculoCollection);
+//        insertColaboradorProprietario(con, proprietarioCollection);
+//        insertColaboradorMotorista(con, motoristaCollection);
         insertRegistroViagem(con, viagemCollection);
 
 

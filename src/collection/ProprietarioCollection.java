@@ -11,10 +11,16 @@ public class ProprietarioCollection implements CollectionInterface {
 
     @Override
     public void initCollection() {
-        ColaboradorProprietario proprietario = new ColaboradorProprietario("44455511125",
+        ColaboradorProprietario proprietario1 = new ColaboradorProprietario("44455511125",
                 "HNC2215");
+        ColaboradorProprietario proprietario2 = new ColaboradorProprietario("85566692354",
+                "APX9985");
+        ColaboradorProprietario proprietario3 = new ColaboradorProprietario("12233345785",
+                "BGR9909");
 
-        proprietarios.add(proprietario);
+        proprietarios.add(proprietario1);
+        proprietarios.add(proprietario2);
+        proprietarios.add(proprietario3);
     }
 
     public Collection<ColaboradorProprietario> getProprietarios() {
