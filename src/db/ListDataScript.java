@@ -21,9 +21,9 @@ public class ListDataScript {
                 ("select p.cpf, v.placa, c.cpf, rv.origem_viagem, rv.destino_viagem, rv.data_hora_inicio," +
                         "rv.data_hora_fim, rv.forma_pagamento, rv.codigo_gerente " +
                         "from registro_viagem rv \n" +
-                        "inner join passageiros p on rv.passageiro = p.id " +
-                        "inner join veiculos v on rv.veiculo = v.id " +
-                        "inner join colaboradores c on rv.motorista = c.id order by rv.id");
+                        "inner join passageiros p on rv.passageiro = p.cpf " +
+                        "inner join veiculos v on rv.veiculo = v.placa " +
+                        "inner join colaboradores c on rv.motorista = c.cpf order by rv.id");
 
         myStmt.execute();
         ResultSet resultSet = myStmt.getResultSet();
@@ -55,8 +55,8 @@ public class ListDataScript {
     private static void getAllMotoristas(Connection con) throws SQLException {
         PreparedStatement myStmt = con.prepareStatement
                 ("SELECT c.nome, c.cpf, v.placa, v.marca FROM colaborador_motorista cm " +
-                        "INNER JOIN colaboradores c ON cm.motorista = c.id " +
-                        "LEFT JOIN veiculos v ON cm.veiculo = v.id ");
+                        "INNER JOIN colaboradores c ON cm.motorista = c.cpf " +
+                        "LEFT JOIN veiculos v ON cm.veiculo = v.placa ");
         myStmt.execute();
         ResultSet resultSet = myStmt.getResultSet();
         listProprietariosAndMotoristas(resultSet);
@@ -65,8 +65,8 @@ public class ListDataScript {
     private static void getAllProprietarios(Connection con) throws SQLException {
         PreparedStatement myStmt = con.prepareStatement
                 ("SELECT c.nome, c.cpf, v.placa, v.marca FROM colaborador_proprietario cp " +
-                        "INNER JOIN colaboradores c ON cp.proprietario = c.id " +
-                        "LEFT JOIN veiculos v ON cp.veiculo = v.id ");
+                        "INNER JOIN colaboradores c ON cp.proprietario = c.cpf " +
+                        "LEFT JOIN veiculos v ON cp.veiculo = v.placa ");
         myStmt.execute();
         ResultSet resultSet = myStmt.getResultSet();
         listProprietariosAndMotoristas(resultSet);
@@ -85,7 +85,7 @@ public class ListDataScript {
 
     private static void getAllColaboradores(Connection con) throws SQLException {
         PreparedStatement myStmt = con.prepareStatement
-                ("SELECT * FROM colaboradores AS v INNER JOIN contas_bancaria AS c ON v.id = c.id");
+                ("SELECT * FROM colaboradores");
 
         myStmt.execute();
         ResultSet resultSet = myStmt.getResultSet();
@@ -96,13 +96,11 @@ public class ListDataScript {
             String endereco = resultSet.getString(4);
             String telefone = resultSet.getString(5);
             String cnh = resultSet.getString(6);
-            String nomeBanco = resultSet.getString(9);
-            String agencia = resultSet.getString(10);
-            String conta = resultSet.getString(11);
+            String contaBancaria = resultSet.getString(7);
             System.out.println("-------------------------------------------");
             System.out.println("ID: " + id + " | CPF: " + cpf + " | NOME: " + nome);
             System.out.println("ENDERECO: " + endereco + " | TELEFONE: " + telefone + " | CNH: " + cnh);
-            System.out.println("NOME BANCO: " + nomeBanco + " | AGENCIA: " + agencia + " | CONTA: " + conta);
+            System.out.println("Conta Bancaria: " + contaBancaria);
         }
     }
 
@@ -118,7 +116,7 @@ public class ListDataScript {
             String placa = resultSet.getString("placa");
             String marca = resultSet.getString("marca");
             String modelo = resultSet.getString("modelo");
-            Date anoFabricacao = resultSet.getDate("ano_fabricacao");
+            Integer anoFabricacao = resultSet.getInt("ano_fabricacao");
             Integer capacidade = resultSet.getInt("capacidade");
             String cor = resultSet.getString("cor");
             String tipoCombustivel = resultSet.getString("tipo_combustivel");
